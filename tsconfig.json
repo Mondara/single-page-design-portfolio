@@ -18,6 +18,14 @@
       }
     ],
     "paths": {
+      "@base": ["./app/_components/base"],
+      "@shared": ["./app/_components/shared"],
+      "@blocks": ["./app/_components/blocks"],
+      "@compontents/*": ["./app/_components/*"],
+
+      "@helpers/*": ["./utils/helpers/*"],
+      "@/utils/*": ["./utils/*"],
+
       "@/*": ["./*"]
     }
   },

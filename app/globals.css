@@ -3,27 +3,110 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --container-size: 1110px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  html {
+    font-family: var(--font-base);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a,
+  button {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer components {
+  .container {
+    width: min(var(--container-size), 100%);
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btn-text {
+    font-family: var(--font-base);
+    font-size: 1rem;
+    font-weight: 700;
+
+    line-height: 28px;
+  }
+
+  .heading-lg-text {
+    font-family: var(--font-base);
+    font-size: /* 36px at 480px to 56px to 1024px */ clamp(
+      2.25rem,
+      1.1471rem + 3.6765vw,
+      3.5rem
+    );
+
+    font-weight: 700;
+  }
+
+  .heading-md-text {
+    font-family: var(--font-base);
+    font-size: /* 26px at 480px to 40px to 1024px */ clamp(
+      1.625rem,
+      0.8529rem + 2.5735vw,
+      2.5rem
+    );
+
+    font-weight: 700;
+  }
+
+  .heading-sm-text {
+    font-family: var(--font-base);
+    font-size: /* 24px at 480px to 32px to 1024px */ clamp(
+      1.5rem,
+      1.0588rem + 1.4706vw,
+      2rem
+    );
+
+    font-weight: 700;
+  }
+
+  .heading-xsm-text {
+    font-family: var(--font-base);
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    line-height: 28px;
+  }
+
+  .body-text {
+    font-family: var(--font-base);
+    font-size: /*16px at 480px to 18px to 1024px*/ clamp(
+      1rem,
+      0.8897rem + 0.3676vw,
+      1.125rem
+    );
+
+    font-weight: 500;
+    line-height: /*26px at 480px to 28px to 1024px*/ clamp(
+      1.625rem,
+      1.5147rem + 0.3676vw,
+      1.75rem
+    );
+  }
 }
 
 @layer utilities {
